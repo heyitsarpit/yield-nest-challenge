@@ -1,6 +1,11 @@
 import '~/styles/globals.css';
 
 import { Inter } from 'next/font/google';
+import { headers } from 'next/headers';
+import { cookieToInitialState } from 'wagmi';
+
+import { config } from '~/config';
+import { WagmiContextProvider } from '~/Wallet/WagmiContext';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -18,9 +23,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const initialState = cookieToInitialState(config, headers().get('cookie'));
+
   return (
     <html lang='en'>
-      <body className={`font-sans ${inter.variable}`}>{children}</body>
+      <body className={`font-sans ${inter.variable}`}>
+        <WagmiContextProvider initialState={initialState}>
+          {children}
+        </WagmiContextProvider>
+      </body>
     </html>
   );
 }
