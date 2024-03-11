@@ -1,6 +1,6 @@
 import { useAccount } from 'wagmi';
 
-export default function useWeb3() {
+export function useWeb3() {
   const { address, chainId, isConnected } = useAccount();
 
   return {

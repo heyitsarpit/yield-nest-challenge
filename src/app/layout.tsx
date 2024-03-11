@@ -4,8 +4,8 @@ import { Inter } from 'next/font/google';
 import { headers } from 'next/headers';
 import { cookieToInitialState } from 'wagmi';
 
+import { WagmiContextProvider } from '~/components/Wallet/WagmiContext';
 import { config } from '~/config';
-import { WagmiContextProvider } from '~/Wallet/WagmiContext';
 
 const inter = Inter({
   subsets: ['latin'],
