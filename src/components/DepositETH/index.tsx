@@ -63,14 +63,14 @@ export function DepositETH() {
     <form
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onSubmit={() => handleSubmit()}
-      className='flex w-[20rem] flex-col gap-4 rounded-lg bg-gray-900 p-4'
+      className='flex w-[20rem] flex-col gap-6 rounded-lg bg-gray-900 p-4'
     >
       <div>Deposit ETH</div>
 
       <input
         type='string'
         onChange={(e) => setAddress(e.target.value)}
-        className='w-full rounded border border-gray-800 bg-gray-600 px-1'
+        className='w-full rounded border border-gray-800 bg-gray-800 px-2 py-1'
         placeholder='Enter address'
       />
 

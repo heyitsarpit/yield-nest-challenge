@@ -38,7 +38,7 @@ export function TokenData() {
         {data.map(({ label, value }) => (
           <div
             key={label}
-            className='flex w-[15rem] flex-col gap-1 rounded-lg border border-gray-700 p-4'
+            className='flex w-full flex-col gap-1 rounded-lg border border-gray-700 p-4 md:w-[15rem]'
           >
             <dt className='font-semibold'>{label}</dt>
             <dd>{value}</dd>
