@@ -16,6 +16,9 @@ const metadata = {
   icons: ['https://avatars.githubusercontent.com/u/37784886'],
 };
 
+export const SupportedChains = [arbitrum, goerli, mainnet] as const;
+export type SupportedChainsIds = (typeof SupportedChains)[number]['id'];
+
 // Create wagmiConfig
 export const config = defaultWagmiConfig({
   chains: [arbitrum, goerli, mainnet], // required
