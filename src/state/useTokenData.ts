@@ -3,11 +3,14 @@ import { erc20Abi } from 'viem';
 import { useReadContracts } from 'wagmi';
 
 import { type SupportedChainsIds } from '~/config';
+import { YNETH_ABI } from '~/config/ABI/ynETH.abi';
 import { tokens, type TokenSymbol } from '~/config/tokens';
 import { useWeb3 } from '~/state/useWeb3';
 
 export function useTokenData(token: TokenSymbol) {
   const { address, chainID } = useWeb3();
+
+  const abi = token === 'ynETH' ? YNETH_ABI : erc20Abi;
 
   const tokenAddress =
     chainID && tokens[token].address[chainID as SupportedChainsIds];
@@ -22,28 +25,28 @@ export function useTokenData(token: TokenSymbol) {
     contracts: [
       {
         address: tokenAddress as `0x${string}`,
-        abi: erc20Abi,
+        abi,
         functionName: 'balanceOf',
         args: [address!],
       },
       {
         address: tokenAddress as `0x${string}`,
-        abi: erc20Abi,
+        abi,
         functionName: 'totalSupply',
       },
       {
         address: tokenAddress as `0x${string}`,
-        abi: erc20Abi,
+        abi,
         functionName: 'symbol',
       },
       {
         address: tokenAddress as `0x${string}`,
-        abi: erc20Abi,
+        abi,
         functionName: 'name',
       },
       {
         address: tokenAddress as `0x${string}`,
-        abi: erc20Abi,
+        abi,
         functionName: 'decimals',
       },
     ],

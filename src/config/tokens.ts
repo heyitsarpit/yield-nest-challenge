@@ -25,6 +25,13 @@ export const tokens = {
       [mainnet.id]: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
     },
   },
+  ynETH: {
+    address: {
+      [arbitrum.id]: undefined,
+      [goerli.id]: '0x0091626e15caFd0F6Bc96dE7F12CEe444c0a212d',
+      [mainnet.id]: undefined,
+    },
+  },
 } as const satisfies Record<string, Token>;
 
 export type TokenSymbol = keyof typeof tokens;
