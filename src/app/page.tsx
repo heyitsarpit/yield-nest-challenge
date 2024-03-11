@@ -20,7 +20,7 @@ export default function HomePage() {
         }
       >
         {isActive ? (
-          <div className='flex flex-col gap-4'>
+          <div className='flex w-full flex-col gap-4 md:items-center'>
             <TokenData />
             <DepositETH />
           </div>
