@@ -11,7 +11,7 @@ export function TokenData() {
     tokenDecimals,
     tokenSupply,
     userBalance,
-  } = useTokenData('WETH');
+  } = useTokenData('ynETH');
 
   const data = [
     {
