@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import { ConnectButton } from '~/Wallet/ConnectButton';
+
+import { ConnectButton } from '~/components/Wallet/ConnectButton';
 
 export function Header() {
   return (
