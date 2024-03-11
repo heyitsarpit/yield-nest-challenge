@@ -27,7 +27,7 @@ export default function RootLayout({
 
   return (
     <html lang='en'>
-      <body className={`bg-gray-950 font-sans ${inter.variable}`}>
+      <body className={`bg-gray-950 font-sans text-gray-100 ${inter.variable}`}>
         <WagmiContextProvider initialState={initialState}>
           {children}
         </WagmiContextProvider>
