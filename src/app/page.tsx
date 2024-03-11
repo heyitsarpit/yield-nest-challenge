@@ -1,6 +1,7 @@
 'use client';
 
 import { Header } from '~/components/Header';
+import { TokenData } from '~/components/TokenData';
 
 export default function HomePage() {
   return (
@@ -9,7 +10,9 @@ export default function HomePage() {
         <Header />
       </div>
 
-      <main className={''}>Hello</main>
+      <main className={'flex flex-col items-center justify-center pt-28'}>
+        <TokenData />
+      </main>
     </div>
   );
 }
