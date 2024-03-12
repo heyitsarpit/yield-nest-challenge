@@ -1,19 +1,18 @@
 import { keepPreviousData } from '@tanstack/react-query';
 import { erc20Abi } from 'viem';
+import { goerli } from 'viem/chains';
 import { useReadContracts } from 'wagmi';
 
-import { type SupportedChainsIds } from '~/config';
 import { YNETH_ABI } from '~/config/ABI/ynETH.abi';
 import { tokens, type TokenSymbol } from '~/config/tokens';
 import { useWeb3 } from '~/state/useWeb3';
 
-export function useTokenData(token: TokenSymbol) {
-  const { address, chainID } = useWeb3();
+export function useTokenData(token: TokenSymbol, chain = goerli) {
+  const { address } = useWeb3();
 
   const abi = token === 'ynETH' ? YNETH_ABI : erc20Abi;
 
-  const tokenAddress =
-    chainID && tokens[token].address[chainID as SupportedChainsIds];
+  const tokenAddress = tokens[token].address[chain.id];
 
   const query = useReadContracts({
     query: {
@@ -26,27 +25,32 @@ export function useTokenData(token: TokenSymbol) {
       {
         address: tokenAddress as `0x${string}`,
         abi,
-        functionName: 'balanceOf',
+        chainId: chain.id,
         args: [address!],
+        functionName: 'balanceOf',
       },
       {
         address: tokenAddress as `0x${string}`,
         abi,
+        chainId: chain.id,
         functionName: 'totalSupply',
       },
       {
         address: tokenAddress as `0x${string}`,
         abi,
+        chainId: chain.id,
         functionName: 'symbol',
       },
       {
         address: tokenAddress as `0x${string}`,
         abi,
+        chainId: chain.id,
         functionName: 'name',
       },
       {
         address: tokenAddress as `0x${string}`,
         abi,
+        chainId: chain.id,
         functionName: 'decimals',
       },
     ],

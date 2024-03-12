@@ -110,7 +110,6 @@ export function DepositETH() {
   const isBalanceSufficient =
     (ethBalance?.value ?? 0n) >= parseUnits(amount, 18);
 
-  console.log({ isBalanceSufficient });
   return (
     <form
       onSubmit={(e) => {
