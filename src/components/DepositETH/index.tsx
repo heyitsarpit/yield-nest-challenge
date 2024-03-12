@@ -157,7 +157,7 @@ export function DepositETH() {
 
       <button
         type='submit'
-        disabled={!isActive || status !== 'idle'}
+        disabled={!isActive || status !== 'idle' || !isBalanceSufficient}
         className='rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:bg-gray-800 disabled:text-gray-400'
       >
         Deposit
