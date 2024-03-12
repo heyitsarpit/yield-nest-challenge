@@ -4,16 +4,10 @@ import { useTokenData } from '~/state/useTokenData';
 import { printToken } from '~/utils/print';
 
 export function TokenData() {
-  const {
-    isLoading,
-    symbol,
-    tokenName,
-    tokenDecimals,
-    tokenSupply,
-    userBalance,
-  } = useTokenData('ynETH');
+  const { data, symbol, tokenName, tokenDecimals, tokenSupply, userBalance } =
+    useTokenData('ynETH');
 
-  const data = [
+  const tokenData = [
     {
       label: 'Symbol',
       value: symbol,
@@ -28,14 +22,14 @@ export function TokenData() {
     },
   ];
 
-  if (isLoading) {
-    return <div>Loading...</div>;
+  if (!data) {
+    return <div className='h-[10rem] w-full'>Loading...</div>;
   }
 
   return (
     <div className='flex flex-col gap-4 md:gap-8'>
       <dl className='flex flex-col gap-4 md:flex-row md:gap-8'>
-        {data.map(({ label, value }) => (
+        {tokenData.map(({ label, value }) => (
           <div
             key={label}
             className='flex w-full flex-col gap-1 rounded-lg border border-gray-700 p-4 md:w-[15rem]'
