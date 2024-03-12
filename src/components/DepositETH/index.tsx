@@ -107,7 +107,10 @@ export function DepositETH() {
   };
 
   const ethBalanceStr = formatUnits(ethBalance?.value ?? 0n, 18);
+  const isBalanceSufficient =
+    (ethBalance?.value ?? 0n) >= parseUnits(amount, 18);
 
+  console.log({ isBalanceSufficient });
   return (
     <form
       onSubmit={(e) => {
@@ -135,7 +138,10 @@ export function DepositETH() {
             value={amount}
             onChange={handleChange}
             placeholder='Enter ETH amount'
-            className='w-full rounded  bg-gray-800 px-2 py-1'
+            data-balance-low={!isBalanceSufficient ? 'true' : ''}
+            className={
+              'w-full rounded bg-gray-800 px-2 py-1 focus-visible:outline focus-visible:outline-blue-500 data-[balance-low="true"]:outline-red-500'
+            }
           />
           <button
             type='button'
