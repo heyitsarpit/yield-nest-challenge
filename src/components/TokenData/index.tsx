@@ -43,7 +43,11 @@ export function TokenData() {
       <dl className='flex flex-col gap-4'>
         <div>
           <dt className='font-semibold'>User Balance</dt>
-          <dd>{printToken(formatUnits(userBalance, tokenDecimals), symbol)}</dd>
+          <dd>
+            {printToken(formatUnits(userBalance, tokenDecimals), symbol, {
+              maximumFractionDigits: 10,
+            })}
+          </dd>
         </div>
 
         <div>
